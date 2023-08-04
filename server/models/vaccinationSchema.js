@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const bookingDoctorSchema = new mongoose.Schema({
- bookingId: {
+const vaccinationSchema = new mongoose.Schema({
+ vaccinationId: {
     type: Number,
     required: true,
   },
@@ -9,12 +9,8 @@ const bookingDoctorSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  doctorName: {
+  vaccineName: {
     type: String,
-    required: true,
-  },
-  doctorId: {
-    type: Number,
     required: true,
   },
   petType: {
@@ -39,6 +35,6 @@ const bookingDoctorSchema = new mongoose.Schema({
   },
 });
 
-const BookingDoctors = mongoose.model("bookingDoctors", bookingDoctorSchema);
+const Vaccinations = mongoose.model("vaccinations", vaccinationSchema);
 
-module.exports = BookingDoctors;
+module.exports = Vaccinations;

@@ -1,20 +1,12 @@
 const mongoose = require("mongoose");
 
-const bookingDoctorSchema = new mongoose.Schema({
- bookingId: {
+const petSpaSchema = new mongoose.Schema({
+ petSpaId: {
     type: Number,
     required: true,
   },
   date: {
     type: Date,
-    required: true,
-  },
-  doctorName: {
-    type: String,
-    required: true,
-  },
-  doctorId: {
-    type: Number,
     required: true,
   },
   petType: {
@@ -39,6 +31,6 @@ const bookingDoctorSchema = new mongoose.Schema({
   },
 });
 
-const BookingDoctors = mongoose.model("bookingDoctors", bookingDoctorSchema);
+const PetSpas = mongoose.model("petSpas", petSpaSchema);
 
-module.exports = BookingDoctors;
+module.exports = PetSpas;

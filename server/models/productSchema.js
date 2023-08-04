@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-  name: {
+  productName: {
     type: String,
     required: true,
   },
@@ -10,7 +10,7 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   price: {
-    type: Float64Array,
+    type: Number,
     required: true,
   },
   currency: {

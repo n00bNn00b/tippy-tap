@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const bookingDoctorSchema = new mongoose.Schema({
- bookingId: {
+const petTrainingSchema = new mongoose.Schema({
+ petTrainingId: {
     type: Number,
     required: true,
   },
@@ -9,13 +9,8 @@ const bookingDoctorSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  doctorName: {
+  trainingType: {
     type: String,
-    required: true,
-  },
-  doctorId: {
-    type: Number,
-    required: true,
   },
   petType: {
     type: String,
@@ -39,6 +34,6 @@ const bookingDoctorSchema = new mongoose.Schema({
   },
 });
 
-const BookingDoctors = mongoose.model("bookingDoctors", bookingDoctorSchema);
+const PetTrainings= mongoose.model("petTrainings", petTrainingSchema);
 
-module.exports = BookingDoctors;
+module.exports = PetTrainings;
