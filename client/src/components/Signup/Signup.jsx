@@ -2,11 +2,11 @@ import React from "react";
 
 const Signup = () => {
   return (
-    <div className="card flex mx-auto w-96 bg-base-100 shadow-xl">
+    <div className="card my-20 flex mx-auto w-96 bg-base-100 shadow-2xl">
       <figure>
         <h1 className="font-bold">Sign Up</h1>
       </figure>
-      <form className="mx-5">
+      <form className="card-body">
         <label className="label">
           <span className="label-text">
             First Name <span className="text-error">*</span>
@@ -78,7 +78,7 @@ const Signup = () => {
         <input
           type="submit"
           value="Sign Up"
-          className="btn btn-primary flex mx-auto my-3"
+          className="btn btn-primary flex mx-auto my-3 text-white"
         />
       </form>
     </div>
