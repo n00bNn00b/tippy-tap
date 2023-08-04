@@ -54,7 +54,32 @@ router.post("/login", async (req, res) => {
     if (!email || !password) {
       return res.status(400).json({ error: "Please filltup the data!" });
     }
-    //   const
+    const emailExist = await Users.findOne({
+      email: email,
+    });
+    if (emailExist) {
+      const userID = emailExist.userID;
+      const userIDExist = await Credentials.findOne({
+        userID: userID,
+      });
+      if (userIDExist) {
+        const isMatched = await bscrypt.compare(password, userIDExist.password);
+        token = await userIDExist.generateAuthToken();
+        console.log(token);
+        res.cookie("jwt", token, {
+          expires: new Date(Date.now() + 604800000), //for 7days
+        });
+        if (!isMatched) {
+          res.json({ error: "Invalid Credentials!" });
+        } else {
+          res.status(200).json({ message: "Login Successful!", userID });
+        }
+      } else {
+        res.status(400).json({ error: "Invalid Credentials!" });
+      }
+    } else {
+      res.status(404).json({ error: "User not found!" });
+    }
   } catch (error) {}
 });
 
