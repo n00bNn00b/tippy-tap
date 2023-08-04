@@ -7,19 +7,27 @@ const bookingDoctorSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    require: true,
+    required: true,
   },
   doctorName: {
     type: String,
-    require: true,
+    required: true,
+  },
+  doctorId: {
+    type: Number,
+    required: true,
   },
   petType: {
     type: String,
-    require: true,
+    required: true,
   },
+  userId: {
+    type: Number,
+    required: true,
+  }, 
   userName: {
     type: String,
-    require: true,
+    required: true,
   },
   userEmail: {
     type: String,
@@ -27,7 +35,7 @@ const bookingDoctorSchema = new mongoose.Schema({
   },
   userPhone: {
     type: String,
-    require: true,
+    required: true,
   },
 });
 
