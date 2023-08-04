@@ -10,6 +10,7 @@ const Credentials = require("../models/credentialSchema");
 router.post("/signup", async (req, res) => {
   const { firstName, middleName, lastName, email, phone, userID, password } =
     req.body;
+    const role = "user";
   if (!firstName || !lastName || !password || !email) {
     return res
       .status(422)
@@ -20,7 +21,7 @@ router.post("/signup", async (req, res) => {
     const emailExist = await Users.findOne({ email: email });
     const userIDinCredsExist = await Credentials.findOne({ userID: userID });
 
-    if (userIDExist && emailExist && userIDinCredsExist) {
+    if (userIDExist || emailExist || userIDinCredsExist) {
       return res.status(422).json({ error: "A user already exists!" });
     } else {
       const user = new Users({
@@ -30,6 +31,7 @@ router.post("/signup", async (req, res) => {
         lastName,
         email,
         phone,
+        role
       });
       const credential = new Credentials({
         userID,

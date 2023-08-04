@@ -23,6 +23,9 @@ const userSchema = new mongoose.Schema({
   phone: {
     type: String,
   },
+  role: {
+    type: String,
+  }
 });
 
 const Users = mongoose.model("users", userSchema);
