@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(require("./router/auth"));
+app.use(require("./router/user"));
 
 app.get("/", (req, res) => {
   res.send("Tippy Tap  Server is Running! 😎");
