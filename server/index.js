@@ -12,7 +12,8 @@ app.use(require("./router/user"));
 app.use(require("./router/doctor"));
 app.use(require("./router/profile"));
 app.use(require("./router/service"));
-
+app.use(require("./router/product"));
+app.use(require("./router/order"));
 
 
 app.get("/", (req, res) => {
