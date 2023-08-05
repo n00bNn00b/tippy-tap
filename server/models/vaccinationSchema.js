@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const vaccinationSchema = new mongoose.Schema({
- vaccinationId: {
+ vaccinationID: {
     type: Number,
     required: true,
   },
@@ -17,7 +17,7 @@ const vaccinationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userId: {
+  userID: {
     type: Number,
     required: true,
   }, 
