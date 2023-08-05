@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const petSpaSchema = new mongoose.Schema({
- petSpaId: {
+ petSpaID: {
     type: Number,
     required: true,
   },
@@ -13,7 +13,7 @@ const petSpaSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userId: {
+  userID: {
     type: Number,
     required: true,
   }, 

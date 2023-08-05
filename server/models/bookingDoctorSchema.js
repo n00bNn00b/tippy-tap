@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const bookingDoctorSchema = new mongoose.Schema({
- bookingId: {
+ bookingID: {
     type: Number,
     required: true,
   },
@@ -13,7 +13,7 @@ const bookingDoctorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  doctorId: {
+  doctorID: {
     type: Number,
     required: true,
   },
@@ -21,7 +21,7 @@ const bookingDoctorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userId: {
+  userID: {
     type: Number,
     required: true,
   }, 

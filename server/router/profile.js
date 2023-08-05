@@ -9,8 +9,12 @@ const Credentials = require("../models/credentialSchema");
 
 // Route to get a specific user by userID
 
-router.get("/profile/:userID", async (req, res) => {
-    const userID = req.params.userID; // Get the userID from the request parameters
+router.post("/profile", async (req, res) => {
+    const { userID } = req.body; // Get the userID from the request body
+
+    if (!userID) {
+      return res.status(400).json({ error: "User ID is missing in the request body" });
+    }
   
     try {
       // Fetch the user with the given userID from the database
@@ -25,6 +29,7 @@ router.get("/profile/:userID", async (req, res) => {
       res.status(500).json({ error: "Internal Server Error" });
     }
   });
+
 
 // Route to update a specific user by userID
 router.put("/profile/update/:userID", async (req, res) => {
