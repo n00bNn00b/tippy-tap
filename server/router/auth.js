@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const express = require("express");
 const router = express.Router();
-const bscrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
 require("../db/connection");
 const Users = require("../models/userSchema");
@@ -65,7 +65,7 @@ router.post("/login", async (req, res) => {
         userID: userID,
       });
       if (userIDExist) {
-        const isMatched = await bscrypt.compare(password, userIDExist.password);
+        const isMatched = await bcrypt.compare(password, userIDExist.password);
         token = await userIDExist.generateAuthToken();
         console.log(token);
         res.cookie("jwt", token, {
