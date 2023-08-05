@@ -9,6 +9,7 @@ app.use(cors());
 
 app.use(require("./router/auth"));
 app.use(require("./router/user"));
+app.use(require("./router/doctor"));
 app.use(require("./router/profile"));
 
 
