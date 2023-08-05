@@ -15,16 +15,6 @@ const Signup = () => {
     const confirmPassword = e.target.confirmPassword.value;
     const userID = Math.floor(Math.random() * 1000 * 10000000);
 
-    console.log(
-      firstName,
-      middleName,
-      lastName,
-      email,
-      phone,
-      password,
-      confirmPassword,
-      userID
-    );
     if (password === confirmPassword) {
       await axios
         .post(
@@ -45,15 +35,16 @@ const Signup = () => {
           }
         )
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           if (res.status === 422 || !res.data) {
             toast.error("Invalid Registration!");
           } else {
             toast.success(res.data.message);
+            e.target.reset();
           }
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           if (err.response.status === 422) {
             toast.warning(err.response.data.error);
           }
