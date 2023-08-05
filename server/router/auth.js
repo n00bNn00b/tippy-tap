@@ -10,7 +10,7 @@ const Credentials = require("../models/credentialSchema");
 router.post("/signup", async (req, res) => {
   const { firstName, middleName, lastName, email, phone, userID, password } =
     req.body;
-    const role = "user";
+  const role = "user";
   if (!firstName || !lastName || !password || !email) {
     return res
       .status(422)
@@ -31,7 +31,7 @@ router.post("/signup", async (req, res) => {
         lastName,
         email,
         phone,
-        role
+        role,
       });
       const credential = new Credentials({
         userID,
@@ -72,7 +72,7 @@ router.post("/login", async (req, res) => {
           expires: new Date(Date.now() + 604800000), //for 7days
         });
         if (!isMatched) {
-          res.json({ error: "Invalid Credentials!" });
+          res.status(400).json({ error: "Invalid Credentials!" });
         } else {
           res.status(200).json({ message: "Login Successful!", userID });
         }
