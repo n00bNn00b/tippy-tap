@@ -11,6 +11,8 @@ app.use(require("./router/auth"));
 app.use(require("./router/user"));
 app.use(require("./router/doctor"));
 app.use(require("./router/profile"));
+app.use(require("./router/service"));
+
 
 
 app.get("/", (req, res) => {
