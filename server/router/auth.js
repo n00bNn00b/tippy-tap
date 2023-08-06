@@ -85,6 +85,44 @@ router.post("/login", async (req, res) => {
   } catch (error) {}
 });
 
+
+// Route to update a user's password
+router.put("/changePassword/:userID", async (req, res) => {
+  const userID = req.params.userID; 
+  const { currentPassword, newPassword, confirmPassword } = req.body; 
+
+  try {
+    // Find the credentials with the given userID
+    const credential = await Credentials.findOne({ userID: userID });
+
+    if (!credential) {
+      return res.status(404).json({ error: "User credentials not found" });
+    }
+
+    // Check if the old password matches
+    const isMatched = await bcrypt.compare(currentPassword, credential.password);
+
+    if (isMatched) {
+      // Check if the two new passwords match
+      if (newPassword !== confirmPassword) {
+        return res.status(400).json({ error: "New password does not match!" });
+      } else {
+        //Hash the new password before storing it in the database
+        const hashedPassword = await bcrypt.hash(newPassword, 12);
+        console.log(hashedPassword);
+        await Credentials.updateOne({ userID: userID }, { password: hashedPassword });
+        res.status(200).json({ message: "Password updated successfully" });
+      }
+    } else {
+      return res.status(400).json({ error: "Wrong current password!" });
+    }
+  } catch (err) {
+    // If there's an error, respond with an error message
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
 router.get("/logout", (req, res) => {
   res.clearCookie("jwt", { path: "/" });
   res.status(200).json({ message: "Successfully Logged Out!" });
