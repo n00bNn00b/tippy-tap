@@ -21,6 +21,10 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  quantity: {
+    type: Number,
+    required: true,
+  },
   userID: {
     type: Number,
     required: true,
@@ -50,7 +54,6 @@ const orderSchema = new mongoose.Schema({
   },
   isDelivered: {
     type: Boolean,
-    required: true,
   },
 });
 

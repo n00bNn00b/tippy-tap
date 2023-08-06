@@ -20,7 +20,11 @@ const productSchema = new mongoose.Schema({
   currency: {
     type: String,
     required: true,
-  }
+  },
+  quantity: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Products = mongoose.model("products", productSchema);
