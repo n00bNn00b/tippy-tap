@@ -9,25 +9,24 @@ const Credentials = require("../models/credentialSchema");
 
 // Route to get a specific user by userID
 
-router.post("/profile", async (req, res) => {
-    const { userID } = req.body; // Get the userID from the request body
+router.get("/profile/:userID", async (req, res) => {
 
-    if (!userID) {
-      return res.status(400).json({ error: "User ID is missing in the request body" });
-    }
-  
-    try {
-      // Fetch the user with the given userID from the database
-      const user = await Users.findOne({ userID: userID });
-  
-      if (!user) {
-        return res.status(404).json({ error: "User not found" });
-      }
+  try {
+    const userID = req.params.userID;
+    const profile = await Users.findOne({ userID : userID} );
 
-      res.status(200).json(user);
-    } catch (err) {
-      res.status(500).json({ error: "Internal Server Error" });
+    if(!profile) {
+      res.status(402).json({ error: "User profile not found" });
+    } else {
+     res.status(200).json(profile);
     }
+
+
+  } catch (err) {
+    console.log(err);
+    res.status(402).json({ error: "User profile not found" });
+  }
+
   });
 
 
