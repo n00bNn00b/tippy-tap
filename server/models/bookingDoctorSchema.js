@@ -25,17 +25,27 @@ const bookingDoctorSchema = new mongoose.Schema({
     type: Number,
     required: true,
   }, 
-  userName: {
+  firstName: {
     type: String,
     required: true,
   },
-  userEmail: {
+  middleName: {
+    type: String,
+  },
+  lastName: {
     type: String,
     required: true,
   },
-  userPhone: {
+  email: {
     type: String,
     required: true,
+  },
+  phone: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: String,
   },
 });
 
