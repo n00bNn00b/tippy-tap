@@ -1,19 +1,23 @@
 const mongoose = require("mongoose");
 
-const vaccinationSchema = new mongoose.Schema({
- vaccinationID: {
+const orderSchema = new mongoose.Schema({
+ orderID: {
     type: Number,
     required: true,
   },
-  date: {
-    type: Date,
+  productID: {
+    type: Number,
     required: true,
   },
-  vaccineName: {
+  productName: {
     type: String,
     required: true,
   },
-  petType: {
+  price: {
+    type: Number,
+    required: true,
+  },
+  currency: {
     type: String,
     required: true,
   },
@@ -32,19 +36,24 @@ const vaccinationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    required: true,
-  },
   phone: {
     type: String,
     required: true,
   },
   address: {
     type: String,
+    required: true,
+  },
+  date: {
+    type: Date,
+    required: true,
+  },
+  isDelivered: {
+    type: Boolean,
+    required: true,
   },
 });
 
-const Vaccinations = mongoose.model("vaccinations", vaccinationSchema);
+const Orders = mongoose.model("orders", orderSchema);
 
-module.exports = Vaccinations;
+module.exports = Orders;
