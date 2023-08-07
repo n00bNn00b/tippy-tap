@@ -6,7 +6,7 @@ const Users = require("../models/userSchema");
 const Credentials = require("../models/credentialSchema");
 
 
-router.get("/doctor/allDoctors", async (req, res) => {
+router.get("/allDoctors", async (req, res) => {
     try {
       // Fetch all doctors from the database
       const allDoctors= await Users.find({ role: "doctor" });

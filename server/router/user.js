@@ -4,7 +4,7 @@ const router = express.Router();
 require("../db/connection");
 const Users = require("../models/userSchema");
 
-router.get("/user/allUsers", async (req, res) => {
+router.get("/allUsers", async (req, res) => {
     try {
       // Fetch all users from the database
       const allUsers = await Users.find({ role: "user" });
