@@ -8,7 +8,7 @@ const Users = require("../models/userSchema");
 const Credentials = require("../models/credentialSchema");
 
 router.post("/signup", async (req, res) => {
-  const { firstName, middleName, lastName, email, phone, userID, password } =
+  const { firstName, middleName, lastName, email, phone, userID, password, address } =
     req.body;
   const role = "user";
   if (!firstName || !lastName || !password || !email) {
@@ -32,6 +32,7 @@ router.post("/signup", async (req, res) => {
         email,
         phone,
         role,
+        address,
       });
       const credential = new Credentials({
         userID,

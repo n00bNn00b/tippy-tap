@@ -18,9 +18,12 @@ router.post("/service/bookDoctor", async (req, res) => {
       doctorID,
       petType,
       userID,
-      userName,
-      userEmail,
-      userPhone,
+      firstName,
+      middleName,
+      lastName,
+      email,
+      phone,
+      address,
     } = req.body;
   
     try {
@@ -46,9 +49,12 @@ router.post("/service/bookDoctor", async (req, res) => {
         doctorID,
         petType,
         userID,
-        userName,
-        userEmail,
-        userPhone,
+        firstName,
+        middleName,
+        lastName,
+        email,
+        phone,
+        address,
       });
   
       // Save the new booking to the database
@@ -70,11 +76,14 @@ router.post("/service/vaccination", async (req, res) => {
       vaccineName,
       petType,
       userID,
-      userName,
-      userEmail,
-      userPhone,
-      doctorID, // Assuming doctorID is also included in the request body
+      firstName,
+      middleName,
+      lastName,
+      email,
+      phone,
+      address,
     } = req.body;
+
   
     try {
       // Check if the user with the given userID exists
@@ -92,9 +101,12 @@ router.post("/service/vaccination", async (req, res) => {
         vaccineName,
         petType,
         userID,
-        userName,
-        userEmail,
-        userPhone,
+        firstName,
+        middleName,
+        lastName,
+        email,
+        phone,
+        address,
       });
   
       // Save the new vaccination to the database
@@ -115,9 +127,12 @@ router.post("/service/petSpa", async (req, res) => {
       date,
       petType,
       userID,
-      userName,
-      userEmail,
-      userPhone,
+      firstName,
+      middleName,
+      lastName,
+      email,
+      phone,
+      address,
     } = req.body;
   
     try {
@@ -134,10 +149,14 @@ router.post("/service/petSpa", async (req, res) => {
         date,
         petType,
         userID,
-        userName,
-        userEmail,
-        userPhone,
+        firstName,
+        middleName,
+        lastName,
+        email,
+        phone,
+        address,
       });
+  
   
       // Save the new pet spa service to the database
       await newPetSpaService.save();
@@ -157,9 +176,12 @@ router.post("/service/petTraining", async (req, res) => {
       trainingType,
       petType,
       userID,
-      userName,
-      userEmail,
-      userPhone,
+      firstName,
+      middleName,
+      lastName,
+      email,
+      phone,
+      address,
     } = req.body;
   
     try {
@@ -177,9 +199,12 @@ router.post("/service/petTraining", async (req, res) => {
         trainingType,
         petType,
         userID,
-        userName,
-        userEmail,
-        userPhone,
+        firstName,
+        middleName,
+        lastName,
+        email,
+        phone,
+        address,
       });
   
       // Save the new pet training service to the database
