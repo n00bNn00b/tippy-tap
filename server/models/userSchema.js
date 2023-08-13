@@ -28,7 +28,10 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-  }
+  },
+  imgLink: {
+    type: String,
+  },
 });
 
 const Users = mongoose.model("users", userSchema);

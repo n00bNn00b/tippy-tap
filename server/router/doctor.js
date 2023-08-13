@@ -22,7 +22,7 @@ router.get("/allDoctors", async (req, res) => {
 
 router.post("/doctor/register", async (req, res) => {
 
-  const { firstName, middleName, lastName, email, phone, userID, password, address } =
+  const { firstName, middleName, lastName, email, phone, userID, password, address, imgLink } =
     req.body;
     const role = "doctor";
   if (!firstName || !lastName || !password || !email) {
@@ -47,6 +47,7 @@ router.post("/doctor/register", async (req, res) => {
         phone,
         role,
         address,
+        imgLink,
       });
       const credential = new Credentials({
         userID,

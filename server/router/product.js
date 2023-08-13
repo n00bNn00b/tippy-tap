@@ -5,7 +5,7 @@ const Products = require("../models/productSchema");
 
 // Route to add a new product
 router.post("/product/add", async (req, res) => {
-  const { productID, productName, category, price, currency, quantity } = req.body;
+  const { productID, productName, category, price, currency, quantity, imgLink } = req.body;
 
   try {
     const newProduct = new Products({
@@ -15,6 +15,7 @@ router.post("/product/add", async (req, res) => {
       price,
       currency,
       quantity, 
+      imgLink
     });
 
     await newProduct.save();

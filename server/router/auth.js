@@ -11,7 +11,7 @@ const Credentials = require("../models/credentialSchema");
 const Tokens = require("../models/tokenSchema");
 
 router.post("/signup", async (req, res) => {
-  const { firstName, middleName, lastName, email, phone, userID, password, address } =
+  const { firstName, middleName, lastName, email, phone, userID, password, address, imgLink } =
     req.body;
   const role = "user";
   if (!firstName || !lastName || !password || !email) {
@@ -36,6 +36,7 @@ router.post("/signup", async (req, res) => {
         phone,
         role,
         address,
+        imgLink,
       });
       const credential = new Credentials({
         userID,
